@@ -25,18 +25,13 @@ myQuestions.forEach(function (data) {
 
     //낱개별 보기
     data.option.forEach(function (subData) {
+        console.log(subData);
         let labels = document.createElement('label');
         labels.innerHTML =
-            '<input type="radio" name="radio_btn" value="">' +
+            '<input type="radio" name="radio_btn" value='+subData.score+'>' +
             subData.text + 
             '<br>';
         optionContainer.prepend(labels);
-
-        // 객관식 보기의 value 값 지정
-        let radio_btn = document.getElementsByName('radio_btn');
-        for (let i = 0; i < radio_btn.length; i++) {
-            radio_btn[i].value = subData.score;
-        }
     });
 });
 
