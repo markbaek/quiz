@@ -18,7 +18,7 @@ myQuestions.forEach(function (data) {
     questions.innerHTML = data.question;
     slide.append(questions);
 
-    //보기영역
+    //보기 영역
     let optionContainer = document.createElement('form');
     optionContainer.className = 'optionContainer';
     slide.append(optionContainer);
@@ -40,23 +40,28 @@ function radioCheck(){
     let radio_btn_check=false;
     for(let i=0; i<radio_btn.length; i++){
         if(radio_btn[i].checked){
+            // console.log(`radio_btn[i] >> ${radio_btn[i]}`);
             radio_btn_check=true;
             result.push(radio_btn[i].value);
             plusSlides(1);
             break;
         }
+        console.log(`radio_btn[i] >> ${radio_btn[i]}`);
+        console.log(`btn[i].checked >> ${radio_btn[i].checked}`);
     }
     if(!radio_btn_check){
         alert("답변을 선택해주세요.");
-    }  
+    }
+    console.log(`btn_check >> ${radio_btn_check}`);
 }
+
 
 
 //버튼
 let buttonArea = document.createElement('div');
 buttonArea.className = 'button';
 buttonArea.innerHTML =
-    '<button id="done" onclick="resulte();delQuiz()">' +
+    '<button id="done" onclick="resulte()">' +
     '결과 보기' +
     '</button>' +
     '<button id="next" onclick="radioCheck()">' +
